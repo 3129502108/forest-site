@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>写给森林的话 · Whispers Back</title>
+<meta name="description" content="在这里写下你与森林的故事，它会留在这里。" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="extras.css" />
+<link rel="stylesheet" href="wishes.css" />
+</head>
+<body class="wishes-body">
+
+<header class="wishes-hero" id="wishesHero">
+  <div class="wishes-hero__bg"></div>
+  <div class="wishes-hero__overlay"></div>
+  <a class="back-link" id="backLink" href="seasons.html">← 回到四季</a>
+  <div class="wishes-hero__content">
+    <h1 class="wishes-hero__title">写给森林的话</h1>
+    <p class="wishes-hero__subtitle" id="seasonLabel">森林会记住你说过的每一句。</p>
+  </div>
+</header>
+
+<main class="wishes-main">
+  <div class="container container--narrow">
+
+    <!-- ============ 发布留言 ============ -->
+    <section class="compose">
+      <div class="compose__row">
+        <input id="nameInput" class="compose__name" type="text" maxlength="24" placeholder="你的名字（可留空）" />
+        <select id="seasonSelect" class="compose__season" aria-label="选择季节">
+          <option value="">— 属于哪一类</option>
+          <option value="spring">春 · 苏醒</option>
+          <option value="summer">夏 · 繁盛</option>
+          <option value="autumn">秋 · 谢幕</option>
+          <option value="winter">冬 · 沉睡</option>
+        </select>
+      </div>
+      <textarea id="textInput" class="compose__text" maxlength="500"
+        placeholder="森林教会了你什么？此刻你想对林间的风说些什么……"></textarea>
+      <div class="compose__footer">
+        <span class="compose__count"><span id="charCount">0</span> / 500</span>
+        <button id="submitBtn" class="compose__btn">投递到林间</button>
+      </div>
+      <p id="composeMsg" class="compose__msg" role="status"></p>
+    </section>
+
+    <!-- ============ 留言 ============ -->
+    <section class="wall">
+      <div class="wall__head">
+        <h2 class="wall__title">林间的回响</h2>
+        <div class="wall__filter" id="filterBar">
+          <button class="chip chip--active" data-season="all">全部</button>
+          <button class="chip" data-season="spring">春</button>
+          <button class="chip" data-season="summer">夏</button>
+          <button class="chip" data-season="autumn">秋</button>
+          <button class="chip" data-season="winter">冬</button>
+        </div>
+      </div>
+      <div id="wishList" class="wish-list">
+        <p class="wish-empty">正在聆听林间的风……</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <p>森林的奥妙 · Whispers of the Forest</p>
+  <p class="footer__sub">你写的每一句，都会留在这里。</p>
+</footer>
+
+<script>
+  /* 返回上一级：按来源判断（四季页进 → 回四季页），无来源回主页 */
+  (function () {
+    var link = document.getElementById('backLink');
+    if (!link) return;
+    var ref = document.referrer || '';
+    var fromSeasons = /seasons\.html/.test(ref);
+    link.setAttribute('href', fromSeasons ? 'seasons.html' : (ref || 'index.html'));
+    link.textContent = fromSeasons ? '← 回到四季' : '← 返回上一级';
+  })();
+</script>
+<script src="wishes.js"></script>
+<script src="site.js"></script>
+<link rel="stylesheet" href="sprite.css" />
+<script src="sprite.js"></script>
+</body>
+</html>

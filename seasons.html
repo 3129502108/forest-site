@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>四季 · Four Seasons</title>
+<meta name="description" content="森林的四封信 —— 春、夏、秋、冬。" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="pages.css" />
+</head>
+<body class="page-body">
+
+<header class="page-hero page-hero--seasons">
+  <div class="page-hero__bg" style="background-image:url('images/season-autumn.jpg')"></div>
+  <div class="page-hero__overlay"></div>
+  <a class="back-link" href="index.html">← 回到森林</a>
+  <div class="page-hero__content">
+    <p class="eyebrow">Four Seasons</p>
+    <h1 class="page-hero__title">森林的四封信</h1>
+    <p class="page-hero__subtitle">点开任意一季，写下你的感想</p>
+  </div>
+</header>
+
+<main class="page-main">
+  <div class="container">
+    <div class="hint" data-hint>✍️ 点开任意一季会进入「写给森林的话」，可以留下永久保存的感想。</div>
+
+    <div class="seasons">
+      <a class="season season--spring" href="wishes.html?season=spring" style="background-image: linear-gradient(160deg, rgba(46,74,52,.28), rgba(28,51,36,.55)), url('images/season-spring.jpg');">
+        <h3>。· 苏醒</h3>
+        <p>积雪退去，蕨类卷出新芽。鸟鸣重新填满清晨，泥土里翻涌着潮湿而温热的气息。</p>
+      </a>
+      <a class="season season--summer" href="wishes.html?season=summer" style="background-image: linear-gradient(160deg, rgba(31,68,41,.28), rgba(22,50,31,.55)), url('images/season-summer.jpg');">
+        <h3>。· 繁盛</h3>
+        <p>林冠密不透风，蝉声与溪声交织。整座森林像一台全力运转的绿色机器。</p>
+      </a>
+      <a class="season season--autumn" href="wishes.html?season=autumn" style="background-image: linear-gradient(160deg, rgba(74,56,32,.25), rgba(43,33,24,.5)), url('images/season-autumn.jpg');">
+        <h3>。· 谢幕</h3>
+        <p>叶绿素退场，红与金黄登台。落叶归土，把一年的阳光还给来年的春天。</p>
+      </a>
+      <a class="season season--winter" href="wishes.html?season=winter" style="background-image: linear-gradient(160deg, rgba(42,58,68,.25), rgba(23,38,45,.5)), url('images/season-winter.jpg');">
+        <h3>。· 沉睡</h3>
+        <p>树木放慢呼吸，雪把一切声音收进怀里。地表之下，生命仍在悄悄等待。</p>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>森林的奥妙· Whispers of the Forest</p>
+  <p class="footer__sub">愿每一次呼吸，都带着树叶的味道。</p>
+</footer>
+
+<script src="pages.js"></script>
+<script src="site.js"></script>
+<link rel="stylesheet" href="sprite.css" />
+<script src="sprite.js"></script>
+</body>
+</html>

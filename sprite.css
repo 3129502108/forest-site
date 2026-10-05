@@ -1,0 +1,73 @@
+/* ============================================================
+   森林小精灵 · Forest Sprite（精简版）
+   一个小树造型的小精灵：绿光 + 可拖动 + 可点摸
+   ============================================================ */
+
+.fsp {
+  position: fixed;
+  z-index: 9999;
+  width: 56px;
+  height: 56px;
+  left: 0;
+  top: 0;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  will-change: transform;
+}
+.fsp:active { cursor: grabbing; }
+
+/* 绿色呼吸光晕 */
+.fsp__glow {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(52,209,163,.55) 0%,
+      rgba(52,209,163,.28) 35%,
+      rgba(52,209,163,0) 70%);
+  filter: blur(3px);
+  animation: fspBreath 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes fspBreath {
+  0%, 100% { transform: scale(1);    opacity: .72; }
+  50%      { transform: scale(1.2);  opacity: 1; }
+}
+
+/* 小树本体 */
+.fsp__body {
+  position: absolute;
+  inset: 0;
+  animation: fspFloat 4s ease-in-out infinite;
+  transform-origin: 50% 90%;
+  filter: drop-shadow(0 0 6px rgba(52,209,163,.85))
+          drop-shadow(0 0 14px rgba(52,209,163,.45));
+}
+@keyframes fspFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(-5px) rotate(2deg); }
+}
+
+/* 被点/被摸：轻轻晃一下 */
+.fsp.is-pat .fsp__body {
+  animation: fspWiggle .5s ease-in-out;
+}
+@keyframes fspWiggle {
+  0%   { transform: rotate(0deg) scale(1); }
+  30%  { transform: rotate(-10deg) scale(1.06); }
+  65%  { transform: rotate(8deg) scale(1.04); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* 眨眼 */
+.fsp__eye-open { animation: fspBlink 5s infinite; transform-origin: center; }
+@keyframes fspBlink {
+  0%, 93%, 100% { transform: scaleY(1); }
+  96%           { transform: scaleY(.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fsp__glow, .fsp__body, .fsp__eye-open { animation: none !important; }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>森林之声 · Forest Sounds</title>
+<meta name="description" content="鸟鸣、风声、溪流 —— 闭上眼睛，听森林说话。" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="pages.css" />
+<link rel="stylesheet" href="extras.css" />
+</head>
+<body class="page-body">
+
+<header class="page-hero page-hero--sound">
+  <div class="page-hero__bg" style="background-image:url('images/forest-03.jpg')"></div>
+  <div class="page-hero__overlay"></div>
+  <a class="back-link" href="index.html">← 回到森林</a>
+  <div class="page-hero__content">
+    <p class="eyebrow">Forest Sounds</p>
+    <h1 class="page-hero__title">森林之声</h1>
+    <p class="page-hero__subtitle">点一下，听森林呼吸。</p>
+  </div>
+</header>
+
+<main class="page-main">
+  <div class="container">
+    <div class="hint" data-hint>🎧 把音频文件放进 <code>audio/</code> 目录（birdsong.mp3 / wind.mp3 / stream.mp3）即可播放</div>
+
+    <div class="sounds">
+      <button class="sound-card" data-sound="audio/birdsong.mp3" data-label="鸟鸣">
+        <span class="sound-card__icon">🐦</span>
+        <span class="sound-card__name">鸟鸣</span>
+        <span class="sound-card__desc">清晨，林冠之上最先醒来的声音</span>
+        <span class="sound-card__state">点击播放</span>
+      </button>
+      <button class="sound-card" data-sound="audio/wind.mp3" data-label="风声">
+        <span class="sound-card__icon">🍃</span>
+        <span class="sound-card__name">风声</span>
+        <span class="sound-card__desc">风穿过枝叶，树在低声交谈</span>
+        <span class="sound-card__state">点击播放</span>
+      </button>
+      <button class="sound-card" data-sound="audio/stream.mp3" data-label="溪流">
+        <span class="sound-card__icon">💧</span>
+        <span class="sound-card__name">溪流</span>
+        <span class="sound-card__desc">水从岩石间穿过，森林的血脉</span>
+        <span class="sound-card__state">点击播放</span>
+      </button>
+    </div>
+
+    <p class="sound-tip">提示：每段音频会自动循环，同时只能播放一个。</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>森林的奥妙· Whispers of the Forest</p>
+  <p class="footer__sub">闭上眼睛，森林就在你身边。</p>
+</footer>
+
+<script src="pages.js"></script>
+<script src="sounds.js"></script>
+<script src="site.js"></script>
+<link rel="stylesheet" href="sprite.css" />
+<script src="sprite.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "whispers-of-the-forest",
+  "version": "1.0.0",
+  "description": "森林的奥妙 · Whispers of the Forest —— 静态森林主题网站，含留言板（四季信件）",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

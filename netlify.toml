@@ -1,0 +1,25 @@
+# ============================================================
+# Netlify 部署配置 · 森林的奥妙
+# 站点: mellow-zuccutto-bfd96d
+# ------------------------------------------------------------
+# 说明：
+#   publish 目录 = 网站静态文件所在目录（当前仓库根目录）
+#   functions 目录 = Netlify Functions（留言板后端）
+# ============================================================
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# 让 /api/* 走 Netlify 函数（留言板后端）
+[[redirects]]
+  from = "/api/wishes"
+  to = "/.netlify/functions/wishes"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/wishes/like"
+  to = "/.netlify/functions/wishes-like"
+  status = 200
+  force = true

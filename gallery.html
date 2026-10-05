@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>美景画廊 · Gallery</title>
+<meta name="description" content="林间的光影 —— 在这里遇见森林的美景。" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="pages.css" />
+</head>
+<body class="page-body">
+
+<header class="page-hero page-hero--gallery">
+  <div class="page-hero__bg" style="background-image:url('images/gallery-main.jpg')"></div>
+  <div class="page-hero__overlay"></div>
+  <a class="back-link" href="index.html">← 回到森林</a>
+  <div class="page-hero__content">
+    <p class="eyebrow">Gallery</p>
+    <h1 class="page-hero__title">美景画廊</h1>
+    <p class="page-hero__subtitle">林间的光影，流转的四季。</p>
+  </div>
+</header>
+
+<main class="page-main">
+  <div class="container">
+    <div class="hint" data-hint>✍️ 想加图片：把照片放进 <code>images/</code>，再复制下面一整块 <code>&lt;figure&gt;</code> 改路径即可</div>
+
+    <div class="gallery">
+      <figure class="gallery__item">
+        <img src="images/gallery-main.jpg" alt="森林美景主图" loading="lazy" />
+        <figcaption>森林的主角· 一切开始的地方</figcaption>
+      </figure>
+      <figure class="gallery__item">
+        <img src="images/gallery-01.jpg" alt="森林景致一" loading="lazy" />
+        <figcaption>林间一隅 · 光影落下的地方</figcaption>
+      </figure>
+      <figure class="gallery__item">
+        <img src="images/gallery-02.jpg" alt="森林景致。 loading="lazy" />
+        <figcaption>枝叶之间 · 风走过的痕迹</figcaption>
+      </figure>
+      <figure class="gallery__item">
+        <img src="images/gallery-03.jpg" alt="森林景致。 loading="lazy" />
+        <figcaption>苔痕与年轮 · 时间盖下的印记</figcaption>
+      </figure>
+      <figure class="gallery__item">
+        <img src="images/forest-01.jpg" alt="森林景致。 loading="lazy" />
+        <figcaption>林间旧影 · 记忆里的那片绿</figcaption>
+      </figure>
+      <figure class="gallery__item">
+        <img src="images/forest-02.jpg" alt="森林景致。 loading="lazy" />
+        <figcaption>光与影 · 安静生长的时刻</figcaption>
+      </figure>
+      <figure class="gallery__item">
+        <img src="images/forest-03.jpg" alt="森林景致。 loading="lazy" />
+        <figcaption>深处 · 万物安静生长的地方</figcaption>
+      </figure>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>森林的奥妙· Whispers of the Forest</p>
+  <p class="footer__sub">愿每一次呼吸，都带着树叶的味道。</p>
+</footer>
+
+<script src="pages.js"></script>
+<script src="site.js"></script>
+<link rel="stylesheet" href="sprite.css" />
+<script src="sprite.js"></script>
+</body>
+</html>

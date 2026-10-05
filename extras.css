@@ -1,0 +1,268 @@
+/* ============================================================
+   扩展模块样式：声音区 / 树种卡片 / 时间轴 / 主题切换 / 汉堡菜单
+   ============================================================ */
+
+/* ---------- 森林之声 ---------- */
+.sounds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 8px;
+}
+.sound-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 32px 28px;
+  font-family: inherit;
+  text-align: left;
+  color: var(--text-main);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform .4s ease, border-color .4s, box-shadow .4s, background .4s;
+}
+.sound-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(217,178,111,.6);
+  box-shadow: 0 18px 46px rgba(0,0,0,.3);
+}
+.sound-card__icon { font-size: 2rem; }
+.sound-card__name { font-size: 1.18rem; letter-spacing: .16em; }
+.sound-card__desc { font-size: .86rem; opacity: .7; font-weight: 300; }
+.sound-card__state {
+  margin-top: 8px;
+  font-size: .76rem;
+  letter-spacing: .18em;
+  color: var(--sage);
+}
+.sound-card.is-playing {
+  border-color: var(--sun);
+  box-shadow: inset 0 0 60px rgba(217,178,111,.14);
+}
+.sound-card.is-playing .sound-card__state { color: var(--sun); }
+.sound-card.is-playing .sound-card__icon { animation: pulse 1.4s ease-in-out infinite; }
+.sound-card.is-error .sound-card__state { color: #d98c8c; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+}
+
+.sound-tip {
+  margin-top: 32px;
+  text-align: center;
+  font-size: .82rem;
+  letter-spacing: .1em;
+  opacity: .55;
+}
+
+/* ---------- 树种卡片 ---------- */
+.tree-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 8px;
+}
+.tree-card {
+  position: relative;
+  padding: 30px 26px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  transition: transform .4s ease, border-color .4s;
+}
+.tree-card:hover { transform: translateY(-6px); border-color: rgba(217,178,111,.55); }
+.tree-card__top { font-size: 1.8rem; margin-bottom: 10px; }
+.tree-card h3 { font-size: 1.2rem; letter-spacing: .06em; }
+.tree-card__latin {
+  font-style: italic;
+  font-size: .8rem;
+  opacity: .55;
+  letter-spacing: .04em;
+  margin-bottom: 12px;
+}
+.tree-card p { font-size: .93rem; opacity: .82; font-weight: 300; }
+.tree-card__tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: .72rem;
+  letter-spacing: .16em;
+  color: var(--sun);
+  border: 1px solid rgba(217,178,111,.4);
+  border-radius: 999px;
+  padding: 3px 12px;
+}
+
+/* ============================================================
+   主题切换 + 顶部工具条
+   ============================================================ */
+.top-tools {
+  position: fixed;
+  top: 18px; right: 18px;
+  z-index: 60;
+  display: flex;
+  gap: 10px;
+}
+.tool-btn {
+  width: 42px; height: 42px;
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+  color: var(--text-main);
+  background: rgba(15,26,18,.55);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background .3s, transform .3s, border-color .3s, color .3s;
+}
+[data-theme="light"] .tool-btn { background: rgba(255,255,255,.7); }
+.tool-btn:hover { transform: translateY(-2px); border-color: var(--sun); color: var(--sun); }
+
+/* 汉堡按钮默认隐藏，窄屏显示 */
+.hamburger { display: none; }
+
+/* ---------- 移动端抽屉菜单 ---------- */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background: rgba(10,18,13,.96);
+  backdrop-filter: blur(10px);
+  animation: fadeIn .3s ease;
+}
+[data-theme="light"] .mobile-menu { background: rgba(238,241,232,.97); }
+.mobile-menu.is-open { display: flex; }
+.mobile-menu a {
+  font-size: 1.3rem;
+  letter-spacing: .24em;
+  color: var(--text-main);
+  opacity: .85;
+  transition: opacity .3s, color .3s;
+}
+.mobile-menu a:hover { opacity: 1; color: var(--sun); }
+.mobile-menu__close {
+  position: absolute;
+  top: 20px; right: 22px;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 760px) {
+  .hamburger { display: grid; }
+  .nav__links { display: none !important; }
+}
+
+/* ============================================================
+   页面切换过渡
+   ============================================================ */
+#pageTransition {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: #0b140d;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+[data-theme="light"] #pageTransition { background: #eef1e8; }
+#pageTransition.is-active { opacity: 1; }
+
+/* 内容淡入 */
+.page-body .page-main,
+.page-body .page-hero__content {
+  animation: softIn .7s ease both;
+}
+@keyframes softIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   滚动视差容器
+   ============================================================ */
+.parallax-band {
+  position: relative;
+  height: clamp(300px, 52vh, 520px);
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.parallax-band__img {
+  position: absolute;
+  left: 0; right: 0;
+  top: -12%;
+  height: 124%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+.parallax-band__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,20,13,.55), rgba(10,20,13,.4));
+}
+.parallax-band__text {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+  color: #f4f1e8;
+}
+.parallax-band__text h2 {
+  font-size: clamp(1.5rem, 4.5vw, 2.8rem);
+  letter-spacing: .14em;
+  text-shadow: 0 6px 30px rgba(0,0,0,.6);
+  margin-bottom: 12px;
+}
+.parallax-band__text p { font-size: clamp(.9rem, 2vw, 1.1rem); letter-spacing: .18em; opacity: .9; }
+
+/* ============================================================
+   留言点赞按钮
+   ============================================================ */
+.wish__like {
+  margin-left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .78rem;
+  letter-spacing: .06em;
+  color: rgba(244,241,232,.7);
+  background: rgba(143,174,139,.1);
+  border: 1px solid rgba(143,174,139,.25);
+  border-radius: 999px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all .3s;
+}
+.wish__like:hover { border-color: rgba(217,178,111,.6); color: var(--sun); }
+.wish__like.is-liked { background: rgba(217,178,111,.16); border-color: rgba(217,178,111,.6); color: var(--sun); }
+.wish__like.is-pop { animation: likePop .4s ease; }
+@keyframes likePop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.28); }
+  100% { transform: scale(1); }
+}
+
+/* 季节标签位置调整（有赞时） */
+.wish__top { flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .top-tools { top: 12px; right: 12px; }
+}
